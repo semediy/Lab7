@@ -6,11 +6,18 @@ class Program
     {
         Func<double, double> discountCalculator = null;
 
-        discountCalculator += price => price * 0.95;  
-        discountCalculator += price => price * 0.90;  
-        discountCalculator += price => price - 100;   
+        discountCalculator += price => price * 0.95;
+        discountCalculator += price => price * 0.90;
+        discountCalculator += price => price - 100;
 
-        double result = discountCalculator(1000);
-        Console.WriteLine(result);
+        double price = 1000;
+        double finalPrice = price;
+
+        foreach (Func<double, double> func in discountCalculator.GetInvocationList())
+        {
+            finalPrice = func(finalPrice);
+        }
+
+        Console.WriteLine(finalPrice);
     }
 }
