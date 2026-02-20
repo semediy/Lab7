@@ -2,7 +2,7 @@ using System;
 
 public class BankTerminal
 {
-    public Action<int> OnMoneyWithdraw;
+    public event  Action<int> OnMoneyWithdraw;
 
     public void Withdraw(int amount)
     {
