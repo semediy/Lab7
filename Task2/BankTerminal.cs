@@ -8,5 +8,6 @@ public class BankTerminal
     {
         Console.WriteLine($"Знято {amount} грн");
         OnMoneyWithdraw?.Invoke(amount);
+        
     }
 }
