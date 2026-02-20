@@ -1,9 +1,16 @@
-﻿ namespace Task3;
+﻿using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello, World!");
+        Func<double, double> discountCalculator = null;
+
+        discountCalculator += price => price * 0.95;  
+        discountCalculator += price => price * 0.90;  
+        discountCalculator += price => price - 100;   
+
+        double result = discountCalculator(1000);
+        Console.WriteLine(result);
     }
 }
