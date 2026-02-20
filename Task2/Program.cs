@@ -1,9 +1,11 @@
-﻿namespace Task2;
-
-class Program
+﻿class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello, World!");
+        BankTerminal terminal = new BankTerminal();
+
+        terminal.OnMoneyWithdraw += amount =>
+            Console.WriteLine($"Повідомлення: знято {amount} грн");
+        terminal.OnMoneyWithdraw?.Invoke(99999);
     }
 }
